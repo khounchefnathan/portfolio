@@ -108,7 +108,8 @@ export default function CV() {
                   <span className="font-mono text-sm text-accent">{exp.period}</span>
                 </div>
                 <p className="mt-1 text-sm italic text-muted">{exp.place}</p>
-                <p className="mt-3 text-muted">{exp.description}</p>
+                <p className="mt-3 text-muted sm:hidden">{exp.descriptionShort}</p>
+                <p className="mt-3 hidden text-muted sm:block">{exp.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {exp.tags.map((tag) => (
                     <Tag key={tag} label={tag} />

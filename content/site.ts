@@ -19,6 +19,8 @@ export const heroContent = {
   title: "Des images qui captent l'instant, des histoires qui restent.",
   subtitle:
     "Vidéaste et assistant caméra, je filme et monte des contenus qui donnent envie de regarder jusqu'au bout : documentaires, aftermovies d'événements et formats pensés pour les réseaux sociaux.",
+  subtitleShort:
+    "Je filme et monte des contenus qui donnent envie de regarder jusqu'au bout.",
   primaryCta: "Voir mon travail",
   secondaryCta: "Me contacter",
 };
@@ -30,6 +32,10 @@ export const aboutContent = {
     "Du tournage au montage final, j'accompagne chaque projet de A à Z : cadrage, lumière, son, étalonnage et rythme, pour raconter une histoire claire qui capte l'attention et sert votre message.",
     "Mon travail s'étend du format documentaire aux aftermovies d'événements, en passant par les contenus courts pensés pour les réseaux sociaux. Chaque vidéo est pensée pour son public et son support, sans jamais sacrifier l'exigence visuelle.",
   ],
+  paragraphsShort: [
+    "Vidéaste et assistant caméra, spécialisé dans la réalisation et le montage pour entreprises, associations et créateurs.",
+    "Du tournage au montage, j'accompagne chaque projet de A à Z pour raconter une histoire qui capte l'attention.",
+  ],
 };
 
 export interface CvExperience {
@@ -37,6 +43,7 @@ export interface CvExperience {
   period: string;
   place: string;
   description: string;
+  descriptionShort: string;
   tags: string[];
 }
 
@@ -78,6 +85,8 @@ export const cvContent = {
       place: "Fiction · Série · Court métrage · Paris / Bordeaux / Creuse / Normandie",
       description:
         "Plusieurs tournages professionnels en tant que 1er assistant caméra sur des projets de fiction : série Appelle-Moi Poésie (8 jours, Creuse), série Ambarqué réalisée par Marc de Panda (Normandie / Paris), court métrage Le Rat (Bordeaux, 2026). Mise au point, gestion des optiques, coordination image avec le chef opérateur.",
+      descriptionShort:
+        "1er assistant caméra sur des projets de fiction : Appelle-Moi Poésie, Ambarqué, Le Rat. Mise au point et coordination image.",
       tags: ["Fiction", "Mise au point", "Chef opérateur", "RED Komodo", "Sony FX6"],
     },
     {
@@ -86,6 +95,8 @@ export const cvContent = {
       place: "Zèta · Équipe communication interne · Alternance",
       description:
         "En autonomie totale au sein d'une équipe com', j'ai pris en charge la totalité du flux vidéo et photo de la marque : préproduction, tournage, montage et retouche photo produit. Création de publicités verticales pensées pour les réseaux sociaux, avec soin apporté au brand storytelling sur chaque format.",
+      descriptionShort:
+        "Flux vidéo et photo de la marque en autonomie : tournage, montage, retouche produit, publicités verticales pour les réseaux sociaux.",
       tags: ["Sony ZV-E1", "Sony A7III", "DaVinci Resolve", "Format vertical", "Photo produit", "Autonomie totale"],
     },
     {
@@ -94,6 +105,8 @@ export const cvContent = {
       place: "Tasty Vidéo · Production vidéo · Angoulême · Alternance",
       description:
         "Intégré dans une équipe restreinte, j'ai assuré l'ensemble du pipeline : préparation matérielle, tournage et montage. After movies, vidéos publicitaires, contenus corporate : chaque projet demandait de raconter une histoire cohérente avec peu d'images. Utilisation quotidienne de la Sony FX3, Ronin RS3 Pro et du matériel lumière professionnel.",
+      descriptionShort:
+        "Tournage et montage d'after movies, vidéos publicitaires et contenus corporate, avec la Sony FX3 et le Ronin RS3 Pro.",
       tags: ["Sony FX3", "Ronin RS3 Pro", "Premiere Pro", "After movie", "Corporate", "Lumière Nanlite"],
     },
   ] satisfies CvExperience[],

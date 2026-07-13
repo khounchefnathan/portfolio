@@ -33,7 +33,15 @@ export default function About() {
             </h2>
           </Reveal>
 
-          <div className="mt-6 space-y-5 text-muted">
+          <div className="mt-6 space-y-5 text-muted sm:hidden">
+            {aboutContent.paragraphsShort.map((paragraph, i) => (
+              <Reveal key={i} delay={150 + i * 80}>
+                <p>{paragraph}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-6 hidden space-y-5 text-muted sm:block">
             {aboutContent.paragraphs.map((paragraph, i) => (
               <Reveal key={i} delay={150 + i * 80}>
                 <p>{paragraph}</p>

@@ -40,7 +40,7 @@ export default function VideoModal({
         type="button"
         aria-label="Fermer"
         onClick={onClose}
-        className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent hover:text-accent"
+        className="absolute right-5 top-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background-elevated text-foreground transition-colors hover:border-accent hover:text-accent"
       >
         ✕
       </button>
@@ -57,10 +57,6 @@ export default function VideoModal({
             project.category === "vertical" ? "aspect-[9/16]" : "aspect-video"
           }`}
         >
-          <div className="pointer-events-none absolute left-3 top-3 z-10 font-mono text-[11px] tracking-wide text-white/70">
-            ISO 800 · F4
-          </div>
-
           {project.muxPlaybackId ? (
             <MuxPlayer
               playbackId={project.muxPlaybackId}
