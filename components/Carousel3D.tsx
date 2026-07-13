@@ -4,27 +4,36 @@ import { useState } from "react";
 import Image from "next/image";
 import type { Project } from "@/content/projects";
 
-const DEPTH = [
-  { x: 0, rotate: 0, scale: 1, z: 30, opacity: 1 },
-  { x: 175, rotate: 34, scale: 0.76, z: 20, opacity: 0.75 },
-  { x: 300, rotate: 46, scale: 0.56, z: 10, opacity: 0.4 },
-];
-
-export default function VerticalCarousel({
+export default function Carousel3D({
   projects,
   onOpen,
+  cardWidth,
+  orientation,
 }: {
   projects: Project[];
   onOpen: (project: Project) => void;
+  cardWidth: number;
+  orientation: "vertical" | "horizontal";
 }) {
   const [active, setActive] = useState(0);
   const count = projects.length;
 
   const goTo = (i: number) => setActive(((i % count) + count) % count);
 
+  const cardHeight = orientation === "vertical" ? (cardWidth * 16) / 9 : (cardWidth * 9) / 16;
+
+  const depth = [
+    { x: 0, rotate: 0, scale: 1, z: 30, opacity: 1 },
+    { x: cardWidth * 1.02, rotate: 15, scale: 0.86, z: 20, opacity: 0.82 },
+    { x: cardWidth * 1.82, rotate: 24, scale: 0.7, z: 10, opacity: 0.48 },
+  ];
+
   return (
     <div>
-      <div className="relative mx-auto flex h-[440px] items-center justify-center" style={{ perspective: "1500px" }}>
+      <div
+        className="relative mx-auto flex items-center justify-center"
+        style={{ perspective: "1800px", height: `${cardHeight + 32}px` }}
+      >
         {projects.map((project, i) => {
           let offset = i - active;
           if (offset > count / 2) offset -= count;
@@ -32,7 +41,7 @@ export default function VerticalCarousel({
 
           const abs = Math.abs(offset);
           const sign = offset === 0 ? 0 : offset > 0 ? 1 : -1;
-          const preset = DEPTH[Math.min(abs, DEPTH.length - 1)];
+          const preset = depth[Math.min(abs, depth.length - 1)];
           const isActive = offset === 0;
 
           return (
@@ -41,8 +50,10 @@ export default function VerticalCarousel({
               type="button"
               onClick={() => (isActive ? onOpen(project) : goTo(i))}
               aria-label={isActive ? `Voir la vidéo ${project.title}` : `Afficher ${project.title}`}
-              className="group absolute aspect-[9/16] w-56 overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-2xl shadow-black/50 transition-transform duration-500 ease-out"
+              className="group absolute overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-2xl shadow-black/50 transition-transform duration-500 ease-out"
               style={{
+                width: `${cardWidth}px`,
+                height: `${cardHeight}px`,
                 transform: `translateX(${sign * preset.x}px) rotateY(${-sign * preset.rotate}deg) scale(${preset.scale})`,
                 zIndex: preset.z,
                 opacity: preset.opacity,
@@ -52,7 +63,7 @@ export default function VerticalCarousel({
                 src={project.poster}
                 alt={project.title}
                 fill
-                sizes="224px"
+                sizes={`${Math.round(cardWidth)}px`}
                 className="object-cover"
               />
               <div
@@ -68,9 +79,9 @@ export default function VerticalCarousel({
                   </span>
                   <div className="absolute inset-x-0 bottom-0 p-4">
                     <p className="font-mono text-xs uppercase tracking-wide text-white/60">
-                      {project.client ?? "Vertical"}
+                      {project.client ?? (orientation === "vertical" ? "Vertical" : "Horizontal")}
                     </p>
-                    <h3 className="mt-1 font-heading text-base font-semibold text-white">
+                    <h3 className="mt-1 font-heading text-base font-semibold text-white sm:text-lg">
                       {project.title}
                     </h3>
                   </div>

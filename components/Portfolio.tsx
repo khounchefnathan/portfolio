@@ -4,7 +4,7 @@ import { useState } from "react";
 import { projects, type Project } from "@/content/projects";
 import ProjectCard from "./ProjectCard";
 import VerticalProjectCard from "./VerticalProjectCard";
-import VerticalCarousel from "./VerticalCarousel";
+import Carousel3D from "./Carousel3D";
 import VideoModal from "./VideoModal";
 import Reveal from "./Reveal";
 
@@ -30,20 +30,21 @@ export default function Portfolio() {
           Formats verticaux
         </h3>
       </Reveal>
-      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8 lg:hidden">
+
+      {/* Mobile / tablette : défilement tactile avec effet de peek, sans 3D. */}
+      <div className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 lg:hidden">
         {verticalProjects.map((project, i) => (
-          <Reveal key={project.slug} delay={(i % 3) * 80}>
-            <VerticalProjectCard
-              project={project}
-              onOpen={setSelected}
-              floatDelay={i * 350}
-            />
-          </Reveal>
+          <div key={project.slug} className="w-[62%] flex-none snap-center sm:w-[34%]">
+            <Reveal delay={(i % 3) * 80}>
+              <VerticalProjectCard project={project} onOpen={setSelected} floatDelay={i * 350} />
+            </Reveal>
+          </div>
         ))}
       </div>
 
-      <Reveal delay={150} className="mt-10 hidden lg:block">
-        <VerticalCarousel projects={verticalProjects} onOpen={setSelected} />
+      {/* Desktop : carrousel 3D en pleine largeur d'écran. */}
+      <Reveal delay={150} className="relative left-1/2 mt-10 hidden w-screen -translate-x-1/2 overflow-hidden px-6 lg:block lg:px-12">
+        <Carousel3D projects={verticalProjects} onOpen={setSelected} cardWidth={300} orientation="vertical" />
       </Reveal>
 
       <Reveal delay={150}>
@@ -51,13 +52,22 @@ export default function Portfolio() {
           Formats horizontaux
         </h3>
       </Reveal>
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
+
+      {/* Mobile / tablette : défilement tactile avec effet de peek, sans 3D. */}
+      <div className="no-scrollbar mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 lg:hidden">
         {horizontalProjects.map((project, i) => (
-          <Reveal key={project.slug} delay={(i % 2) * 80}>
-            <ProjectCard project={project} onOpen={setSelected} />
-          </Reveal>
+          <div key={project.slug} className="w-[82%] flex-none snap-center sm:w-[55%]">
+            <Reveal delay={(i % 2) * 80}>
+              <ProjectCard project={project} onOpen={setSelected} />
+            </Reveal>
+          </div>
         ))}
       </div>
+
+      {/* Desktop : même traitement carrousel 3D, adapté au format 16:9. */}
+      <Reveal delay={150} className="relative left-1/2 mt-10 hidden w-screen -translate-x-1/2 overflow-hidden px-6 lg:block lg:px-12">
+        <Carousel3D projects={horizontalProjects} onOpen={setSelected} cardWidth={460} orientation="horizontal" />
+      </Reveal>
 
       <VideoModal project={selected} onClose={() => setSelected(null)} />
     </section>
