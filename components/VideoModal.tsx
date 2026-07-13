@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import MuxPlayer from "@mux/mux-player-react";
 import type { Project } from "@/content/projects";
-import { getEmbedUrl } from "@/lib/video";
 
 export default function VideoModal({
   project,
@@ -27,8 +27,6 @@ export default function VideoModal({
   }, [project, onClose]);
 
   if (!project) return null;
-
-  const embedUrl = project.videoUrl ? getEmbedUrl(project.videoUrl) : null;
 
   return (
     <div
@@ -58,13 +56,14 @@ export default function VideoModal({
             project.category === "vertical" ? "aspect-[9/16]" : "aspect-video"
           }`}
         >
-          {embedUrl ? (
-            <iframe
-              src={embedUrl}
-              title={project.title}
+          {project.muxPlaybackId ? (
+            <MuxPlayer
+              playbackId={project.muxPlaybackId}
+              streamType="on-demand"
+              autoPlay
+              poster={project.poster}
               className="absolute inset-0 h-full w-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              metadata={{ video_title: project.title }}
             />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-6 text-center text-muted">

@@ -10,8 +10,8 @@ export const siteConfig = {
   cvUrl: "/cv/CV_Nathan_Khounchef.pdf",
   /** Clé d'accès Web3Forms (https://web3forms.com) à créer et renseigner par Nathan. */
   web3formsAccessKey: "",
-  /** URL YouTube/Vimeo du showreel complet, à renseigner une fois uploadé. */
-  showreelUrl: null as string | null,
+  /** Playback ID Mux du showreel complet, à renseigner une fois disponible. */
+  showreelMuxPlaybackId: null as string | null,
 };
 
 export const heroContent = {
