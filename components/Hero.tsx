@@ -13,6 +13,7 @@ export default function Hero() {
         muted
         loop
         playsInline
+        preload="metadata"
         poster="/video/hero-poster.jpg"
       >
         <source media="(max-width: 768px)" src="/video/hero-loop-mobile.mp4" type="video/mp4" />
@@ -22,9 +23,22 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
       <div className="hero-glow absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,var(--accent-soft),transparent_60%)]" />
 
+      {/* Repères de cadre façon viseur : posent la signature visuelle dès l'ouverture. */}
+      <div className="pointer-events-none absolute inset-4 sm:inset-6" aria-hidden="true">
+        <span className="absolute left-0 top-0 h-5 w-5 border-l border-t border-foreground/25 sm:h-7 sm:w-7" />
+        <span className="absolute right-0 top-0 h-5 w-5 border-r border-t border-foreground/25 sm:h-7 sm:w-7" />
+        <span className="absolute bottom-0 left-0 h-5 w-5 border-b border-l border-foreground/25 sm:h-7 sm:w-7" />
+        <span className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-foreground/25 sm:h-7 sm:w-7" />
+      </div>
+
+      <div className="absolute right-6 top-24 hidden items-center gap-2 font-mono text-xs tracking-wide text-foreground/70 sm:flex">
+        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+        REC · 4K/24FPS
+      </div>
+
       <div className="relative mx-auto w-full max-w-6xl px-6 py-24">
         <Reveal>
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background-elevated/80 px-4 py-1.5 text-sm text-muted backdrop-blur">
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background-elevated/80 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.15em] text-muted backdrop-blur">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             {heroContent.badge}
           </p>

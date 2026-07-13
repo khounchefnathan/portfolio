@@ -22,7 +22,7 @@ export default function About() {
 
         <div>
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.2em] text-accent">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-accent">
               {aboutContent.heading}
             </p>
           </Reveal>

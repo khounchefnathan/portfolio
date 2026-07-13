@@ -16,7 +16,7 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="mx-auto max-w-6xl px-6 py-28">
       <Reveal>
-        <p className="text-sm uppercase tracking-[0.2em] text-accent">Portfolio</p>
+        <p className="font-mono text-sm uppercase tracking-[0.2em] text-accent">Portfolio</p>
       </Reveal>
       <Reveal delay={100}>
         <h2 className="mt-4 max-w-2xl font-heading text-3xl font-semibold tracking-tight sm:text-4xl">

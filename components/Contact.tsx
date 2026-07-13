@@ -8,7 +8,7 @@ export default function Contact() {
       <div className="grid gap-16 md:grid-cols-2">
         <div>
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.2em] text-accent">Contact</p>
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-accent">Contact</p>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">

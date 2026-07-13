@@ -7,6 +7,8 @@
   --muted: #a3a09b;
   --accent: #e2342f;
   --accent-soft: rgba(226, 52, 47, 0.16);
+  --accent-warm: #d9922f;
+  --accent-warm-soft: rgba(217, 146, 47, 0.16);
   --border: rgba(245, 243, 240, 0.1);
 }
 
@@ -17,9 +19,12 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-warm-soft: var(--accent-warm-soft);
   --color-border: var(--border);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 html {
@@ -36,6 +41,13 @@ body {
 ::selection {
   background: var(--accent);
   color: #fff;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .reveal {
@@ -95,8 +107,86 @@ body {
   .reveal {
     transition: none;
   }
+  .frame-corner,
+  .frame-label {
+    transition: none !important;
+  }
 }
 
 .hero-glow {
   animation: glow-pulse 8s ease-in-out infinite;
+}
+
+/* Repères d'angle façon viseur caméra : coins qui se resserrent au survol. */
+.frame-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(245, 243, 240, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.frame-top-left {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.frame-top-right {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.frame-bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.frame-bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+.group:hover .frame-top-left,
+.group:focus-visible .frame-top-left {
+  opacity: 1;
+  transform: translate(3px, 3px);
+}
+
+.group:hover .frame-top-right,
+.group:focus-visible .frame-top-right {
+  opacity: 1;
+  transform: translate(-3px, 3px);
+}
+
+.group:hover .frame-bottom-left,
+.group:focus-visible .frame-bottom-left {
+  opacity: 1;
+  transform: translate(3px, -3px);
+}
+
+.group:hover .frame-bottom-right,
+.group:focus-visible .frame-bottom-right {
+  opacity: 1;
+  transform: translate(-3px, -3px);
+}
+
+.frame-label {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.group:hover .frame-label,
+.group:focus-visible .frame-label {
+  opacity: 1;
+  transform: translateY(0);
 }

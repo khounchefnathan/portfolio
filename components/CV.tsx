@@ -8,7 +8,7 @@ export default function CV() {
       <div className="flex flex-wrap items-start justify-between gap-6">
         <div>
           <Reveal>
-            <p className="text-sm uppercase tracking-[0.2em] text-accent">{cvContent.heading}</p>
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-accent">{cvContent.heading}</p>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-4 max-w-2xl font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -105,7 +105,7 @@ export default function CV() {
                 <span className="absolute -left-[33px] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-background" />
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h4 className="font-heading text-lg font-semibold">{exp.role}</h4>
-                  <span className="text-sm text-accent">{exp.period}</span>
+                  <span className="font-mono text-sm text-accent">{exp.period}</span>
                 </div>
                 <p className="mt-1 text-sm italic text-muted">{exp.place}</p>
                 <p className="mt-3 text-muted">{exp.description}</p>
@@ -129,7 +129,7 @@ export default function CV() {
                     <h4 className="font-medium text-foreground">{edu.title}</h4>
                     <p className="text-sm text-muted">{edu.school}</p>
                   </div>
-                  <span className="text-sm text-accent">{edu.year}</span>
+                  <span className="font-mono text-sm text-accent-warm">{edu.year}</span>
                 </div>
               </Reveal>
             ))}
@@ -153,7 +153,7 @@ export default function CV() {
 
 function Tag({ label }: { label: string }) {
   return (
-    <span className="rounded-full border border-border bg-background-elevated px-3 py-1 text-xs text-muted">
+    <span className="rounded-full border border-border bg-background-elevated px-3 py-1 font-mono text-xs text-muted">
       {label}
     </span>
   );
