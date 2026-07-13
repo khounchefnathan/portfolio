@@ -7,7 +7,7 @@ export default function About() {
     <section id="a-propos" className="mx-auto max-w-6xl px-6 py-28">
       <div className="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-16">
         <Reveal>
-          <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-3xl border border-border">
+          <div className="photo-tilt relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-3xl border border-border">
             <Image
               src="/images/profile-principal.jpg"
               alt={siteConfig.name}

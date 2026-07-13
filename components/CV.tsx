@@ -39,7 +39,7 @@ export default function CV() {
         {/* Sidebar */}
         <Reveal delay={100} className="hidden lg:block lg:sticky lg:top-28 lg:self-start">
           <div className="space-y-10">
-            <div className="relative mx-auto aspect-square w-32 overflow-hidden rounded-2xl border border-border sm:mx-0">
+            <div className="photo-tilt relative mx-auto aspect-square w-32 overflow-hidden rounded-2xl border border-border sm:mx-0">
               <Image
                 src="/images/profile-qui-je-suis.jpg"
                 alt={siteConfig.name}

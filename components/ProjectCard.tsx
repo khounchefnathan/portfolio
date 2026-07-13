@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import type { Project } from "@/content/projects";
 
@@ -8,11 +10,24 @@ export default function ProjectCard({
   project: Project;
   onOpen: (project: Project) => void;
 }) {
+  function handleMouseMove(e: React.MouseEvent<HTMLButtonElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    e.currentTarget.style.transform = `perspective(900px) rotateX(${py * -7}deg) rotateY(${px * 7}deg) translateY(-4px)`;
+  }
+
+  function handleMouseLeave(e: React.MouseEvent<HTMLButtonElement>) {
+    e.currentTarget.style.transform = "";
+  }
+
   return (
     <button
       type="button"
       onClick={() => onOpen(project)}
-      className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-background-elevated text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-xl hover:shadow-black/40"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-background-elevated text-left transition-[transform,border-color,box-shadow] duration-200 ease-out hover:border-accent/60 hover:shadow-xl hover:shadow-black/40"
     >
       <Image
         src={project.poster}

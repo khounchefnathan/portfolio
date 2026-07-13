@@ -4,6 +4,7 @@ import { useState } from "react";
 import { projects, type Project } from "@/content/projects";
 import ProjectCard from "./ProjectCard";
 import VerticalProjectCard from "./VerticalProjectCard";
+import VerticalCarousel from "./VerticalCarousel";
 import VideoModal from "./VideoModal";
 import Reveal from "./Reveal";
 
@@ -29,7 +30,7 @@ export default function Portfolio() {
           Formats verticaux
         </h3>
       </Reveal>
-      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8">
+      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8 lg:hidden">
         {verticalProjects.map((project, i) => (
           <Reveal key={project.slug} delay={(i % 3) * 80}>
             <VerticalProjectCard
@@ -40,6 +41,10 @@ export default function Portfolio() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={150} className="mt-10 hidden lg:block">
+        <VerticalCarousel projects={verticalProjects} onOpen={setSelected} />
+      </Reveal>
 
       <Reveal delay={150}>
         <h3 id="formats-horizontaux" className="mt-20 scroll-mt-24 font-heading text-xl font-semibold">
