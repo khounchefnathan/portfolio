@@ -9,7 +9,7 @@ export const siteConfig = {
   /** Ajouter le PDF dans public/cv/ puis mettre à jour ce chemin. */
   cvUrl: "/cv/CV_Nathan_Khounchef.pdf",
   /** Clé d'accès Web3Forms (https://web3forms.com) à créer et renseigner par Nathan. */
-  web3formsAccessKey: "",
+  web3formsAccessKey: "416365c8-e6b2-4fe8-8c26-ff477cad4f09",
   /** Playback ID Mux du showreel complet, à renseigner une fois disponible. */
   showreelMuxPlaybackId: null as string | null,
 };
