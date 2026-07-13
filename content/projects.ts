@@ -14,45 +14,9 @@ export interface Project {
   muxPlaybackId: string | null;
 }
 
+// L'ordre des entrées définit l'ordre d'affichage à l'intérieur de chaque
+// catégorie (vertical puis horizontal) dans la section Portfolio.
 export const projects: Project[] = [
-  {
-    // Asset Mux : "Vétalis_50ans_Aftermovie_V1"
-    slug: "vetalis-50ans",
-    title: "Vétalis — Aftermovie 50 ans",
-    client: "Vétalis",
-    category: "horizontal",
-    description: "Aftermovie de la célébration des 50 ans de l'entreprise Vétalis.",
-    poster: "/images/projects/vetalis-50ans.jpg",
-    muxPlaybackId: "QbVJAR3rkiCDyUVSZZAOFhCDCh42ll01da99jxfExbHc",
-  },
-  {
-    // Asset Mux : "association_durable_-_mini_doc (1080p)"
-    slug: "association-durable",
-    title: "L'Alimentation, j'explore & je choisis",
-    client: "Association Durable",
-    category: "horizontal",
-    description: "Mini-documentaire pour un projet d'éducation à l'alimentation durable à l'école.",
-    poster: "/images/projects/association-durable.jpg",
-    muxPlaybackId: "GnDFevein74Dq00XdT6Fssg4qM02qLRVvXE9gVgQkfcvM",
-  },
-  {
-    // Asset Mux : "présentation_-_bac_bobinage (1080p)"
-    slug: "bac-bobinage",
-    title: "Bac Bobinage — Vidéo de présentation",
-    category: "horizontal",
-    description: "Vidéo de présentation institutionnelle tournée en environnement industriel.",
-    poster: "/images/projects/bac-bobinage.jpg",
-    muxPlaybackId: "00rW9F2uR7b3p2a4gSWt4BGW800tsifSsuaBPpIqFifvY",
-  },
-  {
-    // Asset Mux : "V1_Motocross"
-    slug: "motocross",
-    title: "Motocross — Édit dynamique",
-    category: "horizontal",
-    description: "Édit dynamique en pleine nature, entre vitesse et sensations.",
-    poster: "/images/projects/motocross.jpg",
-    muxPlaybackId: "7Xo1XK9uQelU4B6x8gadmywrgG4LSmoqp9H7dZA7JJE",
-  },
   {
     // Asset Mux : "One-Talk-Beyond-V"
     slug: "one-talk-beyond",
@@ -100,5 +64,43 @@ export const projects: Project[] = [
     description: "Contenu court pensé pour les réseaux sociaux, rythmé et immersif.",
     poster: "/images/projects/reel-insta.jpg",
     muxPlaybackId: "rwDhBMVE4MhrgxrBc5OTK6D3g01gGtDUYCUvTQkCL94E",
+  },
+  {
+    // Asset Mux : "V1_Motocross"
+    slug: "motocross",
+    title: "Motocross — Édit dynamique",
+    category: "horizontal",
+    description: "Édit dynamique en pleine nature, entre vitesse et sensations.",
+    poster: "/images/projects/motocross.jpg",
+    muxPlaybackId: "7Xo1XK9uQelU4B6x8gadmywrgG4LSmoqp9H7dZA7JJE",
+  },
+  {
+    // Asset Mux : "Vétalis_50ans_Aftermovie_V1"
+    slug: "vetalis-50ans",
+    title: "Vétalis — Aftermovie 50 ans",
+    client: "Vétalis",
+    category: "horizontal",
+    description: "Aftermovie de la célébration des 50 ans de l'entreprise Vétalis.",
+    poster: "/images/projects/vetalis-50ans.jpg",
+    muxPlaybackId: "QbVJAR3rkiCDyUVSZZAOFhCDCh42ll01da99jxfExbHc",
+  },
+  {
+    // Asset Mux : "association_durable_-_mini_doc (1080p)"
+    slug: "association-durable",
+    title: "L'Alimentation, j'explore & je choisis",
+    client: "Association Durable",
+    category: "horizontal",
+    description: "Mini-documentaire pour un projet d'éducation à l'alimentation durable à l'école.",
+    poster: "/images/projects/association-durable.jpg",
+    muxPlaybackId: "GnDFevein74Dq00XdT6Fssg4qM02qLRVvXE9gVgQkfcvM",
+  },
+  {
+    // Asset Mux : "présentation_-_bac_bobinage (1080p)"
+    slug: "bac-bobinage",
+    title: "Bac Bobinage — Vidéo de présentation",
+    category: "horizontal",
+    description: "Vidéo de présentation institutionnelle tournée en environnement industriel.",
+    poster: "/images/projects/bac-bobinage.jpg",
+    muxPlaybackId: "00rW9F2uR7b3p2a4gSWt4BGW800tsifSsuaBPpIqFifvY",
   },
 ];

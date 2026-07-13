@@ -20,13 +20,13 @@ export default function Hero() {
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,var(--accent-soft),transparent_60%)]" />
+      <div className="hero-glow absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,var(--accent-soft),transparent_60%)]" />
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-24">
         <Reveal>
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-background-elevated/80 px-4 py-1.5 text-sm text-muted backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Vidéaste indépendant
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+            {heroContent.badge}
           </p>
         </Reveal>
 
@@ -46,7 +46,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#portfolio"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-accent/30"
             >
               {heroContent.primaryCta}
             </a>

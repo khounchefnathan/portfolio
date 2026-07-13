@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: `${siteConfig.name} — ${siteConfig.role}`,
   description:
-    "Portfolio de Nathan Khounchef, vidéaste indépendant : documentaires, aftermovies d'événements et contenus réseaux sociaux.",
+    "Portfolio de Nathan Khounchef, vidéaste et assistant caméra : documentaires, aftermovies d'événements et contenus réseaux sociaux.",
 };
 
 export default function RootLayout({

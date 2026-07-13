@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Nathan Khounchef",
-  role: "Vidéaste",
+  role: "Vidéaste & Assistant Caméra",
   email: "khounchef.nathan@gmail.com",
   phoneDisplay: "06 20 41 98 19",
   phoneHref: "tel:+33620419819",
@@ -15,9 +15,10 @@ export const siteConfig = {
 };
 
 export const heroContent = {
+  badge: "Vidéaste et assistant caméra",
   title: "Des images qui captent l'instant, des histoires qui restent.",
   subtitle:
-    "Vidéaste indépendant, je filme et monte des contenus qui donnent envie de regarder jusqu'au bout — documentaires, aftermovies d'événements et formats pensés pour les réseaux sociaux.",
+    "Vidéaste et assistant caméra, je filme et monte des contenus qui donnent envie de regarder jusqu'au bout — documentaires, aftermovies d'événements et formats pensés pour les réseaux sociaux.",
   primaryCta: "Voir mon travail",
   secondaryCta: "Me contacter",
 };
@@ -25,7 +26,7 @@ export const heroContent = {
 export const aboutContent = {
   heading: "À propos",
   paragraphs: [
-    "Passionné par l'image depuis toujours, je suis vidéaste indépendant spécialisé dans la réalisation et le montage de contenus pour entreprises, associations et créateurs.",
+    "Passionné par l'image depuis toujours, je suis vidéaste et assistant caméra, spécialisé dans la réalisation et le montage de contenus pour entreprises, associations et créateurs.",
     "Du tournage au montage final, j'accompagne chaque projet de A à Z : cadrage, lumière, son, étalonnage et rythme — pour raconter une histoire claire qui capte l'attention et sert votre message.",
     "Mon travail s'étend du format documentaire aux aftermovies d'événements, en passant par les contenus courts pensés pour les réseaux sociaux. Chaque vidéo est pensée pour son public et son support, sans jamais sacrifier l'exigence visuelle.",
   ],

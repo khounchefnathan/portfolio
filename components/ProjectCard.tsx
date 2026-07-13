@@ -8,21 +8,17 @@ export default function ProjectCard({
   project: Project;
   onOpen: (project: Project) => void;
 }) {
-  const isVertical = project.category === "vertical";
-
   return (
     <button
       type="button"
       onClick={() => onOpen(project)}
-      className={`group relative w-full overflow-hidden rounded-2xl border border-border bg-background-elevated text-left transition-colors hover:border-accent/60 ${
-        isVertical ? "aspect-[9/16]" : "aspect-video"
-      }`}
+      className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-background-elevated text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-xl hover:shadow-black/40"
     >
       <Image
         src={project.poster}
         alt={project.title}
         fill
-        sizes={isVertical ? "(max-width: 768px) 50vw, 320px" : "(max-width: 768px) 100vw, 480px"}
+        sizes="(max-width: 768px) 100vw, 480px"
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
       />
@@ -37,7 +33,7 @@ export default function ProjectCard({
 
       <div className="absolute inset-x-0 bottom-0 p-4">
         <p className="text-xs uppercase tracking-wide text-white/60">
-          {project.client ?? (isVertical ? "Vertical" : "Horizontal")}
+          {project.client ?? "Horizontal"}
         </p>
         <h3 className="mt-1 font-heading text-base font-semibold text-white sm:text-lg">
           {project.title}
