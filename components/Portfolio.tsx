@@ -66,7 +66,7 @@ export default function Portfolio() {
 
       {/* Desktop : même traitement carrousel 3D, adapté au format 16:9. */}
       <Reveal delay={150} className="relative left-1/2 mt-10 hidden w-screen -translate-x-1/2 overflow-hidden px-6 lg:block lg:px-12">
-        <Carousel3D projects={horizontalProjects} onOpen={setSelected} cardWidth={460} orientation="horizontal" />
+        <Carousel3D projects={horizontalProjects} onOpen={setSelected} cardWidth={640} orientation="horizontal" />
       </Reveal>
 
       <VideoModal project={selected} onClose={() => setSelected(null)} />

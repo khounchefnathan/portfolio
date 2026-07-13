@@ -22,10 +22,12 @@ export default function Carousel3D({
 
   const cardHeight = orientation === "vertical" ? (cardWidth * 16) / 9 : (cardWidth * 9) / 16;
 
+  const [gap1Ratio, gap2Ratio] = orientation === "vertical" ? [1.02, 1.82] : [0.68, 1.26];
+
   const depth = [
     { x: 0, rotate: 0, scale: 1, z: 30, opacity: 1 },
-    { x: cardWidth * 1.02, rotate: 15, scale: 0.86, z: 20, opacity: 0.82 },
-    { x: cardWidth * 1.82, rotate: 24, scale: 0.7, z: 10, opacity: 0.48 },
+    { x: cardWidth * gap1Ratio, rotate: 15, scale: 0.86, z: 20, opacity: 0.82 },
+    { x: cardWidth * gap2Ratio, rotate: 24, scale: 0.7, z: 10, opacity: 0.48 },
   ];
 
   return (
