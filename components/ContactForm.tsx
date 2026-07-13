@@ -20,7 +20,7 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     data.append("access_key", siteConfig.web3formsAccessKey);
-    data.append("subject", `Nouveau message depuis le portfolio — ${data.get("name")}`);
+    data.append("subject", `Nouveau message depuis le portfolio · ${data.get("name")}`);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -76,7 +76,7 @@ export default function ContactForm() {
       )}
       {status === "error" && (
         <p className="text-sm text-accent">
-          Le formulaire n&rsquo;est pas encore activé — contactez-moi directement par téléphone ou email en
+          Le formulaire n&rsquo;est pas encore activé. Contactez-moi directement par téléphone ou email en
           attendant.
         </p>
       )}

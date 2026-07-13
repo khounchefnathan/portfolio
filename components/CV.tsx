@@ -76,7 +76,7 @@ export default function CV() {
               <ul className="mt-3 space-y-1.5">
                 {cvContent.languages.map((lang) => (
                   <li key={lang.name} className="text-sm text-foreground/90">
-                    {lang.name} <span className="text-muted">— {lang.level}</span>
+                    {lang.name} <span className="text-muted">· {lang.level}</span>
                   </li>
                 ))}
               </ul>
