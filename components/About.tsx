@@ -43,11 +43,10 @@ export default function About() {
 
           <Reveal delay={400}>
             <a
-              href={siteConfig.cvUrl}
-              download
+              href="#cv"
               className="mt-10 inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
             >
-              Télécharger mon CV
+              Voir mon CV
               <svg
                 width="14"
                 height="14"
@@ -58,7 +57,7 @@ export default function About() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <path d="M12 5v14M5 12l7 7 7-7" />
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </Reveal>

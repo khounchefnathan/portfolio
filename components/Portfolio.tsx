@@ -25,7 +25,9 @@ export default function Portfolio() {
       </Reveal>
 
       <Reveal delay={150}>
-        <h3 className="mt-16 font-heading text-xl font-semibold">Formats verticaux</h3>
+        <h3 id="formats-verticaux" className="mt-16 scroll-mt-24 font-heading text-xl font-semibold">
+          Formats verticaux
+        </h3>
       </Reveal>
       <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-8">
         {verticalProjects.map((project, i) => (
@@ -40,7 +42,9 @@ export default function Portfolio() {
       </div>
 
       <Reveal delay={150}>
-        <h3 className="mt-20 font-heading text-xl font-semibold">Formats horizontaux</h3>
+        <h3 id="formats-horizontaux" className="mt-20 scroll-mt-24 font-heading text-xl font-semibold">
+          Formats horizontaux
+        </h3>
       </Reveal>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
         {horizontalProjects.map((project, i) => (

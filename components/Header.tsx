@@ -6,6 +6,7 @@ import { siteConfig } from "@/content/site";
 const links = [
   { href: "#accueil", label: "Accueil" },
   { href: "#a-propos", label: "À propos" },
+  { href: "#cv", label: "CV" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#contact", label: "Contact" },
 ];
@@ -37,38 +38,51 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-foreground md:inline-block"
-        >
-          Me contacter
-        </a>
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <a
+            href="#cv"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-accent px-4 text-sm font-medium text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-accent/30 sm:px-5"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" />
+              <path d="M8 7h8M8 11h8M8 15h5" />
+            </svg>
+            CV
+          </a>
 
-        <button
-          type="button"
-          aria-label="Ouvrir le menu"
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border md:hidden"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="relative block h-3.5 w-4">
-            <span
-              className={`absolute left-0 top-0 h-px w-full bg-foreground transition-transform ${
-                open ? "translate-y-[7px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-foreground transition-opacity ${
-                open ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute bottom-0 left-0 h-px w-full bg-foreground transition-transform ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-foreground md:inline-block"
+          >
+            Me contacter
+          </a>
+
+          <button
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded={open}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border md:hidden"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="relative block h-3.5 w-4">
+              <span
+                className={`absolute left-0 top-0 h-px w-full bg-foreground transition-transform ${
+                  open ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-foreground transition-opacity ${
+                  open ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-px w-full bg-foreground transition-transform ${
+                  open ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </div>
 
       {open && (
