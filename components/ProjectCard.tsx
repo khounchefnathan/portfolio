@@ -25,6 +25,8 @@ export default function ProjectCard({
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity group-hover:from-black/85" />
 
+      <span className="card-sheen" aria-hidden="true" />
+
       <span className="frame-corner frame-top-left" aria-hidden="true" />
       <span className="frame-corner frame-top-right" aria-hidden="true" />
       <span className="frame-corner frame-bottom-left" aria-hidden="true" />

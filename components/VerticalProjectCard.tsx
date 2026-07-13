@@ -43,6 +43,8 @@ export default function VerticalProjectCard({
       {/* Desktop/tablette : rendu épuré façon inspiration, bouton play centré, titre au survol */}
       <div className="absolute inset-0 hidden bg-black/10 transition-colors duration-300 md:block md:group-hover:bg-black/45" />
 
+      <span className="card-sheen hidden md:block" aria-hidden="true" />
+
       <span className="frame-corner frame-top-left hidden md:block" aria-hidden="true" />
       <span className="frame-corner frame-top-right hidden md:block" aria-hidden="true" />
       <span className="frame-corner frame-bottom-left hidden md:block" aria-hidden="true" />

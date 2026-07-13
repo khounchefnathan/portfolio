@@ -46,7 +46,8 @@ export default function VideoModal({
       </button>
 
       <div
-        className={`relative w-full overflow-hidden rounded-2xl border border-border bg-background-elevated ${
+        key={project.slug}
+        className={`modal-iris-in relative w-full overflow-hidden rounded-2xl border border-border bg-background-elevated ${
           project.category === "vertical" ? "max-w-sm" : "max-w-4xl"
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -56,6 +57,10 @@ export default function VideoModal({
             project.category === "vertical" ? "aspect-[9/16]" : "aspect-video"
           }`}
         >
+          <div className="pointer-events-none absolute left-3 top-3 z-10 font-mono text-[11px] tracking-wide text-white/70">
+            ISO 800 · F4
+          </div>
+
           {project.muxPlaybackId ? (
             <MuxPlayer
               playbackId={project.muxPlaybackId}

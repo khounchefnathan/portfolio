@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/content/site";
 
 const links = [
@@ -13,9 +13,47 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [active, setActive] = useState("#accueil");
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(scrollable > 0 ? Math.min(100, (window.scrollY / scrollable) * 100) : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.getElementById(link.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+      {/* Barre de progression façon timeline de montage : la lecture de la page, comme un edit. */}
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-border/40">
+        <div
+          className="h-full bg-accent transition-[width] duration-150 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#accueil"
@@ -26,16 +64,30 @@ export default function Header() {
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="group relative text-sm text-muted transition-colors hover:text-foreground"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
-            </a>
-          ))}
+          {links.map((link) => {
+            const isActive = active === link.href;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`group relative flex items-center gap-1.5 text-sm transition-colors ${
+                  isActive ? "text-foreground" : "text-muted hover:text-foreground"
+                }`}
+              >
+                <span
+                  className={`h-1.5 w-1.5 rounded-full bg-accent transition-opacity ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+                {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px w-full origin-left bg-accent transition-transform duration-300 ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2.5 sm:gap-3">

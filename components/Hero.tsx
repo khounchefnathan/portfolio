@@ -8,7 +8,7 @@ export default function Hero() {
       className="relative flex min-h-screen items-center overflow-hidden pt-24"
     >
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className="hero-focus-pull absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
@@ -33,7 +33,11 @@ export default function Hero() {
 
       <div className="absolute right-6 top-24 hidden items-center gap-2 font-mono text-xs tracking-wide text-foreground/70 sm:flex">
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-        REC · 4K/24FPS
+        REC · 4K/25FPS
+      </div>
+
+      <div className="absolute bottom-16 left-6 hidden font-mono text-xs tracking-wide text-foreground/70 sm:block">
+        SHUTTER 1/50
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-24">

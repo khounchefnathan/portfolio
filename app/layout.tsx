@@ -37,6 +37,7 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <div className="film-grain" aria-hidden="true" />
         {children}
       </body>
     </html>
